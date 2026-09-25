@@ -44,18 +44,18 @@ with st.sidebar:
     st.markdown("---")
     st.subheader("Models")
 
-    # More reliable model IDs (as of late 2026)
+    # Updated working model IDs (Sept 2026)
     available_models = {
-        "Grok": "x-ai/grok-beta",
+        "Grok 4.7": "x-ai/grok-4.7",
         "Claude 3.5 Sonnet": "anthropic/claude-3.5-sonnet",
-        "Gemini Flash": "google/gemini-flash-1.5",
+        "Gemini 3.8 Flash": "google/gemini-3.8-flash",
         "GPT-4o": "openai/gpt-4o",
-        "DeepSeek": "deepseek/deepseek-chat"
+        "DeepSeek Chat": "deepseek/deepseek-chat"
     }
 
     selected = []
     for name, model_id in available_models.items():
-        if st.checkbox(name, value=True if name in ["Grok", "Claude 3.5 Sonnet", "Gemini Flash"] else False):
+        if st.checkbox(name, value=True if name in ["Grok 4.7", "Claude 3.5 Sonnet", "Gemini 3.8 Flash"] else False):
             selected.append(model_id)
 
     st.markdown("---")
@@ -90,7 +90,6 @@ def add_to_history(role, name, content):
 st.title("Digital Speakeasy")
 st.caption("Proof of Concept")
 
-# Show last error clearly
 if st.session_state.last_error:
     st.error(st.session_state.last_error)
 
